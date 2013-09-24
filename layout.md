@@ -1,1 +1,0 @@
-figures/dynamo/dynamo1.png
