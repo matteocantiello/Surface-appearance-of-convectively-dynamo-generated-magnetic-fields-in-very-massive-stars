@@ -1,1 +1,1 @@
-figures/dynamo/dynamo.png
+figures/dynamo/dynamo_radius.png
