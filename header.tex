@@ -1,0 +1,371 @@
+\newcommand{\ensuremath}{}
+%\newcommand{\mesa}{\code{MESA}}
+\newcommand{\MESA}{\mesa}
+\newcommand{\ga}{\gt}
+\newcommand{\varv}{v}
+\newcommand{\vca}{v_{\mathrm {c}}}
+\newcommand{\mso}{\,\mathrm{M}_\odot}
+\newcommand{\rso}{\,{\rm R}_\odot}
+\newcommand{\lso}{\,{\rm L}_\odot}
+\newcommand{\hrd}{HR diagram}
+\newcommand{\kms}{\, {\rm km}\, {\rm s}^{-1}}
+\newcommand{\egs}{\, {\rm erg}\, {\rm s}^{-1}}
+\newcommand{\teff}{\log\, T_{\rm }\,}
+\newcommand{\llso}{\log\, L/ L_\odot \,}
+\newcommand{\simle}{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$<$}}}}
+\newcommand{\simgr}{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$>$}}}}
+\newcommand{\grad}{\nabla}
+\newcommand{\adrad}{\nabla_{\mathrm{\!rad}}}
+\newcommand{\adgrad}{\nabla_{\mathrm{\!ad}}}
+\newcommand{\mugrad}{\nabla_{\!\mu}}
+\newcommand{\cp}{c_{\!P}}
+\newcommand{\hp}{H_{\mathrm{P}}}
+% macros for naming codes, plus shortcuts for some common ones
+%\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\code}{}
+\newcommand{\flash}{FLASH}
+\newcommand{\kepler}{KEPLER}
+\newcommand{\nonsmoker}{NON-SMOKER}
+\newcommand{\mesa}{\code{MESA}}
+\newcommand{\MESA}{\mesa}
+\newcommand{\STERN}{STERN}
+\newcommand{\ADIPLS}{\code{ADIPLS}}
+\newcommand{\DSEP}{DSEP}
+
+% modules for MESA, from the original instrument paper
+\newcommand{\alert}{\code{alert}}
+\newcommand{\utils}{\code{utils}}
+\newcommand{\const}{\code{const}}
+\newcommand{\chem}{\code{chem}}
+\newcommand{\diffusion}{\code{diffusion}}
+\newcommand{\mtx}{\code{mtx}}
+\newcommand{\mesastar}{\mesa~\code{star}}
+\newcommand{\MESAstar}{\mesastar}
+\newcommand{\num}{\code{num}}
+\newcommand{\nuc}{\code{nuc}}
+\newcommand{\kap}{\code{kap}}
+\newcommand{\eos}{\code{eos}}
+\newcommand{\intone}{\code{interp\_1d}}
+\newcommand{\inttwo}{\code{interp\_2d}}
+\newcommand{\atm}{\code{atm}}
+\newcommand{\diff}{\code{diffusion}}
+\newcommand{\mlt}{\code{mlt}}
+\newcommand{\rates}{\code{rates}}
+\newcommand{\net}{\code{net}}
+\newcommand{\neu}{\code{neu}}
+\newcommand{\weak}{\code{weaklib}}
+\newcommand{\screen}{\code{screen}}
+\newcommand{\ioniz}{\code{ionization}}
+\newcommand{\adipls}{\code{adipls}}
+\newcommand{\colors}{\code{colors}}
+\newcommand{\reaclib}{\code{reaclib}}
+\newcommand{\karo}{\code{karo}}
+\newcommand{\astero}{\code{astero}}
+\newcommand{\sdk}{\code{SDK}}
+\newcommand{\SDK}{\sdk}
+
+%derivatives
+\newcommand{\dif}{\ensuremath{\mathrm{d}}}
+\newcommand{\D}{{\mathrm d}}
+\newcommand{\DD}{{\,\D\!\!\;}}
+\newcommand{\ddt}[1]{\frac{\partial #1}{\partial t}} %partial time derivative 
+\newcommand{\DDt}[1]{\frac{\dif #1}{\dif t}} %total time derivative
+\newcommand{\ddx}[1]{\frac{\partial #1}{\partial x}} %partial derivative wrt x 
+\newcommand{\ddy}[1]{\frac{\partial #1}{\partial y}} %partial derivative wrt y 
+\newcommand{\DDy}[1]{\frac{\dif #1}{\dif y}} %total derivative wrt y
+\newcommand{\ddz}[1]{\frac{\partial #1}{\partial z}} %partial derivative wrt z 
+\newcommand{\ppl}[2]{\left(\frac{\partial\ln #1}{\partial\ln
+      #2}\right)_{\rho,T}}
+\newcommand{\ppll}[2]{\left(\frac{\partial\ln #1}{\partial\ln
+      #2}\right)_{\rho,T,\{X_{j\neq i}\}}}
+\newcommand{\ddl}[2]{\frac{{\rm d}\ln #1}{{\rm d}\ln #2}}
+\newcommand{\DxDy}[2]{{\frac{\D{#1}}{\D{#2}}}}
+\newcommand{\dxdy}[2]{{\frac{\partial{#1}}{\partial{#2}}}}
+\newcommand{\dxdyind}[3]{{\Brak{\frac{\D{#1}}{\D{#2}}}_{{#3}}}}
+\newcommand{\dxdycz}[3]{{\Brak{\frac{\partial{#1}}{\partial{#2}}}_{{#3}}}}
+
+% nuclides
+% base command
+\newcommand{\nuclei}[2]{\ensuremath{\mathrm{^{#1}#2}}}
+% nuclides, with most highest abundance or longest half-life as default
+% for example, \carbon produces ^{12}C, \carbon[13] produces ^{13}C
+\newcommand{\neutron}{\ensuremath{n}}
+\newcommand{\nt}{\neutron}
+\newcommand{\proton}{\ensuremath{p}}
+\newcommand{\pt}{\proton}
+\newcommand{\photon}{\ensuremath{\gamma}}
+\newcommand{\hydrogen}[1][1]{\nuclei{#1}{H}}
+\newcommand{\helium}[1][4]{\nuclei{#1}{He}}
+\newcommand{\lithium}[1][7]{\nuclei{#1}{Li}}
+\newcommand{\beryllium}[1][9]{\nuclei{#1}{Be}}
+\newcommand{\boron}[1][11]{\nuclei{#1}{B}}
+\newcommand{\carbon}[1][12]{\nuclei{#1}{C}}
+\newcommand{\nitrogen}[1][14]{\nuclei{#1}{N}}
+\newcommand{\oxygen}[1][16]{\nuclei{#1}{O}}
+\newcommand{\fluorine}[1][19]{\nuclei{#1}{F}}
+\newcommand{\neon}[1][20]{\nuclei{#1}{Ne}}
+\newcommand{\sodium}[1][23]{\nuclei{#1}{Na}}
+\newcommand{\magnesium}[1][24]{\nuclei{#1}{Mg}}
+\newcommand{\aluminum}[1][27]{\nuclei{#1}{Al}}
+\newcommand{\silicon}[1][28]{\nuclei{#1}{Si}}
+\newcommand{\phosphorus}[1][31]{\nuclei{#1}{P}}
+\newcommand{\sulfur}[1][32]{\nuclei{#1}{S}}
+\newcommand{\chlorine}[1][35]{\nuclei{#1}{Cl}}
+\newcommand{\argon}[1][36]{\nuclei{#1}{Ar}}
+\newcommand{\potassium}[1][39]{\nuclei{#1}{K}}
+\newcommand{\calcium}[1][40]{\nuclei{#1}{Ca}}
+\newcommand{\scandium}[1][45]{\nuclei{#1}{Sc}}
+\newcommand{\titanium}[1][48]{\nuclei{#1}{Ti}}
+\newcommand{\vanadium}[1][51]{\nuclei{#1}{V}}
+\newcommand{\chromium}[1][52]{\nuclei{#1}{Cr}}
+\newcommand{\manganese}[1][55]{\nuclei{#1}{Mn}}
+\newcommand{\iron}[1][56]{\nuclei{#1}{Fe}}
+\newcommand{\cobalt}[1][59]{\nuclei{#1}{Co}}
+\newcommand{\nickel}[1][58]{\nuclei{#1}{Ni}}
+\newcommand{\copernicum}[1][285]{\nuclei{#1}{Cn}}
+
+% typesetting of units
+% basic unit typesetteing
+\newcommand{\unitspace}{\ensuremath{\,}}
+\newcommand{\usp}{\unitspace}
+\newcommand{\numberspace}{\ensuremath{\;}}
+\newcommand{\nsp}{\numberspace}
+\newcommand{\unitstyle}[1]{\ensuremath{\mathrm{#1}}}
+\newcommand{\power}[2]{\ensuremath{{#1}^{#2}}}
+\newcommand{\ee}[1]{\ensuremath{\times 10^{#1}}}
+
+% prefixes
+\newcommand{\nano}{\unitstyle{n}}
+\newcommand{\milli}{\unitstyle{m}}
+\newcommand{\centi}{\unitstyle{c}}
+\newcommand{\kilo}{\unitstyle{k}}
+\newcommand{\Mega}{\unitstyle{M}}
+\newcommand{\Giga}{\unitstyle{G}}
+
+% base units, mks
+\newcommand{\meter}{\unitstyle{m}}
+\newcommand{\kilogram}{\kilo\gram}
+\newcommand{\second}{\unitstyle{s}}
+
+\newcommand{\Kelvin}{\unitstyle{K}}
+\newcommand{\K}{\Kelvin}  %degrees Kelvin
+
+% base units, cgs
+\newcommand{\cm}{\centi\meter}
+\newcommand{\gram}{\unitstyle{g}}
+
+% derived units
+\newcommand{\grampercc}{\gram\usp\power{\cm}{-3}} %mass density
+\newcommand{\grampersquarecm}{\gram\usp\power{\cm}{-2}} %column depth
+\newcommand{\squarecmpergram}{\power{\cm}{2}\usp\power{\gram}{-1}} %opacity
+\newcommand{\GramPerCc}{\grampercc}
+\newcommand{\GramPerSc}{\grampersquarecm}
+\newcommand{\columnunit}{\grampersquarecm}
+\newcommand{\dyne}{\unitstyle{dyn}} %dyne
+\newcommand{\erg}{\unitstyle{ergs}} %ergs
+\newcommand{\ergs}{\erg}
+\newcommand{\gauss}{\unitstyle{G}} %gauss
+\newcommand{\ergspersecond}{\erg\unitspace\power{\second}{-1}}
+\newcommand{\ergspergram}{\erg\unitspace\power{\gram}{-1}}
+\newcommand{\ergspergs}{\erg\unitspace\power{\gram}{-1}\unitspace\power{\second}{-1}} %angular momentum
+\newcommand{\ergssecond}{\erg\unitspace\second}
+\newcommand{\cgsflux}{\erg\unitspace\power{\cm}{-2}\usp\power{\second}{-1}}
+
+% Nuclear and atomic units
+\newcommand{\amu}{\unitstyle{u}} %atomic mass unit
+\newcommand{\angstrom}{\mbox{\AA}} %Angstrom
+\newcommand{\fermi}{\unitstyle{fm}} %fermi
+\newcommand{\eV}{\unitstyle{eV}}        %eV
+\newcommand{\keV}{\kilo\eV} %Kev
+\newcommand{\MeV}{\Mega\eV} %MeV
+
+% solar and astronomical units
+\newcommand{\Msun}{\ensuremath{\unitstyle{M}_\odot}}
+\newcommand{\Lsun}{\ensuremath{\unitstyle{L}_{\odot}}}
+\newcommand{\Rsun}{\ensuremath{\unitstyle{R}_{\odot}}}
+\newcommand{\Zsun}{\ensuremath{Z_{\odot}}}
+\newcommand{\Myr}{\Mega\yr}
+\newcommand{\Gyr}{\Giga\yr}
+\newcommand{\parsec}{\unitstyle{pc}}
+\newcommand{\kpc}{\kilo\parsec} %kiloparsec
+\newcommand{\mJy}{\unitstyle{\mu Jy}} %micro Jansky
+\newcommand{\Msunyr}{\Msun\,\power{\yr}{-1}}
+\newcommand{\MJ}{\ensuremath{\mathrm{M_J}}}
+\newcommand{\RJ}{\ensuremath{\mathrm{R_J}}}
+\newcommand{\AU}{\unitstyle{AU}}
+
+% misc. units
+\newcommand{\minute}{\unitstyle{min}} %minute
+\newcommand{\hour}{\unitstyle{hr}} %hour
+\newcommand{\yr}{\unitstyle{yr}}        %year
+\newcommand{\km}{\kilo\meter}   %kilometers
+\newcommand{\Hz}{\unitstyle{Hz}}        %Hertz
+\newcommand{\ksec}{\kilo\second} %kilosecond
+\newcommand{\kms}{\ensuremath{\mathrm{km}\,\second^{-1}}}
+\newcommand{\vcrit}{{\varv_{\mathrm{crit}}}}
+\newcommand{\vkep}{{\varv_{\mathrm{kep}}}}
+\newcommand{\vsurf}{{\varv_{\mathrm{surf}}}}
+\newcommand{\mol}{\unitstyle{mol}}% mole
+\newcommand{\barn}{\unitstyle{b}} %barn
+\newcommand{\gcms}{\, {\rm g}\, {\rm cm}^{2}\, {\rm s}^{-1}}
+
+% command to include values
+\newcommand{\unit}[2]{\ensuremath{#1\numberspace\mathrm{#2}}}
+
+\newcommand{\bvec}[1]{\ensuremath{\boldsymbol{#1}}} %boldface vector style
+\newcommand{\grad}{\bvec{\nabla}} %gradient
+\newcommand{\divr}{\nabla \cdot} %divergence
+\newcommand{\curl}{\bvec{\nabla \times}} %curl
+\newcommand{\lap}{\ensuremath{\nabla^2}} %Laplacian
+\newcommand{\btens}[1]{\ensuremath{\boldsymbol{\mathsf{#1}}}}
+\newcommand{\vcross}{\bvec{\times}}
+\newcommand{\vdot}{\bvec{\cdot}}
+
+% formatting.tex --- Formatting Macros
+%References
+\newcommand{\lSect}[1]{{\label{sec:#1}}}
+\newcommand{\lFig}[1]{{\label{fig:#1}}}
+\newcommand{\lEq}[1]{{\label{eq:#1}}}
+\newcommand{\lTab}[1]{{\label{tab:#1}}}
+\newcommand{\pFig}[1]{{\placefigure{fig:#1}}}
+\newcommand{\pTab}[1]{{\placetable{tab:#1}}}
+\newcommand{\Tabff}[1]{{\ref{tab:#1}}}
+\newcommand{\Tab}[1]{{Table~\Tabff{#1}}}
+\newcommand{\Tabs}[1]{{Tables~\Tabff{#1}}}
+\newcommand{\TabRange}[2]{{Tables~\Tabff{#1} - \Tabff{#2}}}
+\newcommand{\TabTwo}[2]{{Tables~\Tabff{#1} and \Tabff{#2}}}
+\newcommand{\pan}[1]{{\textit{#1}}}
+\newcommand{\Pan}[1]{{Panel~\pan{#1}}}
+\newcommand{\Pans}[1]{{Panels~\pan{#1}}}
+\newcommand{\FIGFF}[2]{{\ref{fig:#2}\pan{#1}}}
+\newcommand{\Figff}[1]{{\FIGFF{}{#1}}}
+\newcommand{\FIG}[2]{{Fig.~\FIGFF{#1}{#2}}}
+\newcommand{\Fig}[1]{{\FIG{}{#1}}}
+\newcommand{\FigTwo}[2]{{\FIGS{}{#1} and \FIGFF{}{#2}}}
+\newcommand{\FIGS}[2]{{Figs.~\FIGFF{#1}{#2}}}
+\newcommand{\Figs}[1]{{\FIGS{}{#1}}}
+\newcommand{\Figure}[1]{{Figure~\FIGFF{}{#1}}}
+\newcommand{\Figures}[1]{{Figures~\FIGFF{}{#1}}}
+\newcommand{\Sectff}[1]{{\ref{sec:#1}}}
+\newcommand{\Sect}[1]{{\S\Sectff{#1}}}
+\newcommand{\Appendix}[1]{{Appendix~\Sectff{#1}}}
+\newcommand{\Appendices}[1]{{Appendices~\Sectff{#1}}}
+\newcommand{\Sects}[1]{{\S\S\Sectff{#1}}}
+\newcommand{\Eqref}[1]{{\ref{eq:#1}}}
+\newcommand{\Eqff}[1]{{(\Eqref{#1})}}
+\newcommand{\EQ}[1]{{Equation~\Eqff{#1}}}
+\newcommand{\Equation}[1]{{Equation~\Eqff{#1}}}
+\newcommand{\Eq}[1]{{Eq.~\Eqff{#1}}}
+\newcommand{\Eqs}[1]{{Eqs.~\Eqff{#1}}}
+\newcommand{\Leg}[1]{{\textit{#1}}}
+
+% formatting macros
+\newcommand{\isofont}[1]{{\mathrm{#1}}}
+\newcommand{\isomass}[1]{{\ensuremath{\isofont{^{#1}}}}}
+\newcommand{\isocharge}[1]{{\ensuremath{\isofont{_{#1}}}}}
+\newcommand{\isotope}[3]{{\ensuremath{\isocharge{#1}\isomass{#2}\isofont{#3}}}}
+\newcommand{\Solar}[1]{{\ensuremath{\left[\right.}#1\ensuremath{\right.\left]}}}
+\newcommand{\I}[2]{{\isotope{}{#1}{#2}}}
+\newcommand{\El}[1]{{\I{}{#1}}}
+\newcommand{\Rat}[4]{{\I{#1}{#2}/\I{#3}{#4}}}
+\newcommand{\SolRatI}[4]{{\Solar{\Rat{#1}{#2}{#3}{#4}}}}
+\newcommand{\SolI}[2]{{\Solar{\I{#1}{#2}}}} \newcommand{\SolEl}[1]{{\Solar{\El{#1}}}} 
+\newcommand{\Ep}[1]{{\ensuremath{10^{#1}}}}
+\newcommand{\E}[1]{{\ensuremath{\powersep\Ep{#1}}}}
+\newcommand{\EE}[2]{{\ensuremath{\powersep\Ep{#1#2}}}}
+\newcommand{\powersep}{\times}
+\newcommand{\Brak}[1]{{\left({#1}\right)}}
+\newcommand{\SBrak}[1]{{\left[{#1}\right]}}
+
+% symbols for commonly used expressions in the paper.  The point is to define these for 
+% consistent notation.  Before defining or using an expression, check that someone hasn't defined it already.
+\newcommand{\epsnuc}{\ensuremath{\epsilon_{\mathrm{nuc}}}}	% nuclear heating rate
+\newcommand{\epsgrav}{\ensuremath{\epsilon_{\mathrm{grav}}}} % gravitational heating rate
+\newcommand{\Teff}{\ensuremath{T_{\!\mathrm{eff}}}}	% effective temperature
+\newcommand{\teff}{\Teff}
+\newcommand{\Ledd}{\ensuremath{L_{\mathrm{Edd}}}} % Eddington Luminosity
+\newcommand{\logg}{\ensuremath{\log g}}	% log surface gravity
+\newcommand{\Tc}{\ensuremath{T_{\mathrm{\!c}}}} % central temperature
+\newcommand{\Pc}{\ensuremath{P_{\mathrm{\!c}}}} % central pressure
+\newcommand{\rhoc}{\ensuremath{\rho_{\mathrm{c}}}} % central density
+\newcommand{\CP}{\ensuremath{C_{\!P}}} % specific heat at constant pressure
+\newcommand{\Mdot}{\ensuremath{\dot{M}}} % mass-loss rate
+\newcommand{\Mc}{\ensuremath{M_{\rm c}}} % core mass
+\newcommand{\Mm}{\ensuremath{M_{\rm m}}} % modeled mass
+\newcommand{\Rc}{\ensuremath{R_{\rm c}}} % core radius
+\newcommand{\Lc}{\ensuremath{L_{\rm c}}} % core luminosity
+\newcommand{\Lacc}{\ensuremath{L_{\rm acc}}} % accretion luminosity
+
+% opacity stuff
+\newcommand{\kappath}{\ensuremath{\kappa_{\mathrm{th}}}} % opacity for thermal radiation orig.\ in planet
+\newcommand{\kappav}{\ensuremath{\kappa_{\mathrm{v}}}} % opacity for irradiation from star
+
+% for correction between baryon densities and mass-energy densities
+\newcommand{\nB}{\ensuremath{n_{\mathrm{B}}}}	% baryon density
+%
+% symbols from the first instrument paper
+\newcommand{\alphaMLT}{\ensuremath{\alpha_{\mathrm{MLT}}}}	% mixing length parameter
+\newcommand{\chirho}{\ensuremath{\chi_{\rho}}}	% $(\partial\ln P/\partial\ln\rho)_T$
+\newcommand{\chiT}{\ensuremath{\chi_{\raisebox{-2pt}{$\scriptstyle T$}}}}	% $(\partial\ln P/\partial\ln T)_{\rho}$
+\newcommand{\Gammaone}{\ensuremath{\Gamma_{\!1}}} % $ (\partial\ln P/\partial \ln\rho)_S$
+\newcommand{\Dov}{\ensuremath{D_{\mathrm{ov}}}}	% overshoot diffusion coefficient
+\newcommand{\nablaad}{\ensuremath{\nabla_{\!\mathrm{ad}}}}	% adiabatic temperature gradient
+\newcommand{\nablarad}{\ensuremath{\nabla_{\!\mathrm{rad}}}}	% radiative temperature gradient
+\newcommand{\nablaT}{\ensuremath{\nabla_{\!T}}}	% actual temperature gradient
+\newcommand{\nablaL}{\ensuremath{\nabla_{\mathrm{\!L}}}}	% Ledoux criterion
+\newcommand{\scaleheight}{\ensuremath{\lambda_P}}	% pressure scale height
+\newcommand{\Pgas}{\ensuremath{P_{\!\!\mathrm{gas}}}}	% gas pressure
+\newcommand{\timestep}{\ensuremath{\delta t}} % numerical timestep
+%
+% more symbols for radiation and gas pressures
+\newcommand{\Prad}{\ensuremath{P_{\!\!\mathrm{rad}}}}	% radiation pressure
+\newcommand{\Lrad}{\ensuremath{L_{\mathrm{rad}}}}	% radiative luminosity
+\newcommand{\tderiv}[3]{\ensuremath{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}} %thermodynamic derivative
+\newcommand{\Lrho}{\ensuremath{L_{\mathrm{inv}}}}	% luminosity at which a density inversion occurs
+\newcommand{\Lonset}{\ensuremath{L_{\mathrm{onset}}}}	% luminosity at which the onset of convection occurs
+\newcommand{\Fconv}{\ensuremath{F_{\!\mathrm{conv}}}}		% convective flux
+\newcommand{\Frad}{\ensuremath{F_{\!\mathrm{rad}}}}	% radiative flux
+\newcommand{\supernab}{\ensuremath{\delta_\nabla}}  % superadiabaticity, $\nablaT-\nablaad$
+\newcommand{\superthresh}{\ensuremath{\delta_{\nabla,\mathrm{thresh}}}}  % controls when MLT++ is applied
+\newcommand{\fsuper}{\ensuremath{f_\nabla}} % reduction factor for $\supernab$
+\newcommand{\asuper}{\ensuremath{\alpha_\nabla}}  % smoothing parameter for MLT++
+\newcommand{\asupert}{\ensuremath{\widetilde{\asuper}}} % MLT++ parameter used in construction of \asuper
+\newcommand{\lambdamax}{\ensuremath{\lambda_{\max}}} % $ \max(\Lrad/\Ledd)$
+\newcommand{\betamin}{\ensuremath{\beta_{\min}}} % $ \min(P/\Pgas)$
+
+% mixing symbols
+\newcommand{\alphasc}{\ensuremath{\alpha_{\mathrm{sc}}}} % semiconvection efficiency parameter
+\newcommand{\alphath}{\ensuremath{\alpha_{\mathrm{th}}}} % thermohaline efficiency parameter
+\newcommand{\Dth}{\ensuremath{D_{\mathrm{th}}}} % thermohaline diffusion coefficient
+
+\newcommand{\EFc}{\ensuremath{E_{\mathrm{F,c}}}}  % Fermi energy at center
+%
+% physical constants
+\newcommand{\kB}{\ensuremath{k_\mathrm{B}}} % Boltzmann constant
+\newcommand{\NA}{\ensuremath{N_\mathrm{\!A}}} % Avogadro number
+\newcommand{\mb}{\ensuremath{m_\mathrm{u}}} % atomic mass unit
+\newcommand{\sigmaSB}{\ensuremath{\sigma_\mathrm{\!SB}}} % Stefan-Boltzmann constant
+
+% rotation
+\newcommand{\veq}{\ensuremath{\varv_{\mathrm{eq}}}} % equatorial velocity
+\newcommand{\veqi}{\ensuremath{\varv_{\mathrm{eq,ini}}}}
+\newcommand{\Om}{\ensuremath{\Omega}}  % surface angular velocity
+\newcommand{\Omc}{\ensuremath{\Om_{\mathrm{crit}}}} % surface critical angular velocity
+\newcommand{\om}{\ensuremath{\omega}}  %  angular velocity
+\newcommand{\tkh}{\ensuremath{\tau_{\mathrm{KH}}}} % thermal (Kelvin-Helmholtz) timescale
+
+% asteroseismology
+\newcommand{\numax}{\ensuremath{\nu_{\mathrm{max}}}} % frequency of maximum power
+\newcommand{\dnu}{\ensuremath{\Delta\nu}}  % large frequency separation of pulsation modes
+\newcommand{\fov}{\ensuremath{f_{\mathrm{ov}}}} % convective overshoot parameter
+\newcommand{\cs}{\ensuremath{c_{\rm s}}} % adiabatic sound speed
+\newcommand{\Slamb}{\ensuremath{S_{\!\ell}}} % Lamb frequency
+
+% misc. abbreviations
+\newcommand{\mesaone}{Paper~I} % the first mesa paper
+\newcommand{\bvfreq}{Brunt-V\"ais\"al\"a frequency}
+\newcommand{\bvv}{Brunt-V\"ais\"al\"a}
+\newcommand{\muhz}{$\mu$Hz}
+\newcommand{\msol}{\Msun}
+\newcommand{\rsol}{\Rsun}
+\newcommand{\lsol}{\Lsun}
